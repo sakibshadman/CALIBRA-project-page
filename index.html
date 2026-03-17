@@ -53,6 +53,7 @@
   <style>
     :root {
       --primary: #1d4ed8;
+      --author: #2563eb;
       --ink: #111827;
       --muted: #4b5563;
       --border: #e5e7eb;
@@ -61,6 +62,12 @@
       --shadow-soft: 0 6px 18px rgba(15, 23, 42, 0.06);
       --radius: 18px;
       --dark-table: #1f1f1f;
+      --heading-line: #ec4899;
+      --accept-bg: #f5f3ff;
+      --accept-border: #ddd6fe;
+      --accept-pill: #4c1d95;
+      --explain-bg: #eef2ff;
+      --explain-border: #6366f1;
     }
 
     html {
@@ -106,28 +113,39 @@
     .accept-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.7rem;
       padding: 0.85rem 1.2rem;
       border-radius: 999px;
-      background: linear-gradient(135deg, #eef2ff, #f5f3ff);
-      border: 1px solid #c7d2fe;
+      background: linear-gradient(135deg, var(--accept-bg), #eff6ff);
+      border: 1px solid var(--accept-border);
       color: #1f2937;
       font-weight: 800;
-      box-shadow: 0 10px 25px rgba(29, 78, 216, 0.10);
+      box-shadow: 0 10px 25px rgba(76, 29, 149, 0.08);
     }
 
     .accept-badge .tag-pill {
-      background: #111827;
+      background: linear-gradient(135deg, var(--accept-pill), #6d28d9);
       color: #fff;
       border-radius: 999px;
-      padding: 0.32rem 0.65rem;
-      font-size: 0.82rem;
-      font-weight: 700;
+      padding: 0.38rem 0.78rem;
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
     }
 
     .publication-authors a {
-      color: inherit;
+      color: var(--author);
       text-decoration: none;
+      font-weight: 700;
+    }
+
+    .publication-authors a:hover {
+      color: #1d4ed8;
+    }
+
+    .affiliation-line {
+      white-space: nowrap;
+      display: inline-block;
     }
 
     .custom-buttons {
@@ -214,11 +232,11 @@
     }
 
     .compact-p {
-      max-width: 860px;
+      max-width: 900px;
       margin: 0 auto 1rem auto;
       text-align: center;
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
     .spacer-top {
@@ -226,19 +244,39 @@
     }
 
     .section-title-tight {
-      margin-bottom: 0.6rem !important;
+      margin-bottom: 0.45rem !important;
+    }
+
+    .title-with-line {
+      position: relative;
+      margin-bottom: 1.15rem !important;
+    }
+
+    .title-with-line::after {
+      content: "";
+      display: block;
+      width: 62px;
+      height: 3px;
+      background: var(--heading-line);
+      border-radius: 999px;
+      margin: 0.65rem auto 0 auto;
     }
 
     .explain-block {
       max-width: 980px;
       margin: 0 auto;
       padding: 1.2rem 1.35rem;
-      border-left: 5px solid #6366f1;
-      background: #eef2ff;
-      color: #1f2937;
+      border-left: 5px solid var(--explain-border);
+      background: var(--explain-bg);
+      color: #111827;
       border-radius: 14px;
-      line-height: 1.82;
+      line-height: 1.9;
       font-size: 1.03rem;
+    }
+
+    .explain-block strong,
+    .explain-block em {
+      color: #111827;
     }
 
     .results-shell {
@@ -472,6 +510,10 @@
       margin: 0 auto;
     }
 
+    .abstract-text {
+      color: #000000;
+    }
+
     .bibtex-header {
       display: flex;
       align-items: center;
@@ -501,19 +543,14 @@
       background: #f5f5f5;
     }
 
-    /* remove template underline under headings */
-    .title.is-3::after,
-    .hero .title.is-3::after,
-    .section .title.is-3::after,
-    h2.title.is-3::after {
-      display: none !important;
-      content: none !important;
-    }
-
     @media (max-width: 1024px) {
       .results-metric-grid,
       .ablation-metric-row {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .affiliation-line {
+        white-space: normal;
       }
     }
 
@@ -545,6 +582,10 @@
       .accept-badge {
         text-align: center;
         line-height: 1.5;
+      }
+
+      .affiliation-line {
+        white-space: normal;
       }
     }
   </style>
@@ -607,7 +648,7 @@
               </div>
 
               <div class="is-size-4 publication-authors" style="margin-top: 0.45rem;">
-                <span class="author-block">
+                <span class="author-block affiliation-line">
                   <sup>1</sup>Department of Information Systems, University of Maryland, Baltimore County, USA
                 </span>
               </div>
@@ -690,8 +731,8 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
-            <h2 class="title is-3">Abstract</h2>
-            <div class="content has-text-justified">
+            <h2 class="title is-3 has-text-centered title-with-line">Abstract</h2>
+            <div class="content has-text-justified abstract-text">
               <p>
                 Contactless physiological monitoring offers a promising path toward low-burden health sensing, but reliable inference from short video segments remains difficult when visual evidence is weak, corrupted by motion, or spectrally ambiguous. We present CALIBRA, a calibration-aware multi-agent framework for contactless respiratory rate (RR) estimation that treats prediction as an evidence-grounded verification problem rather than a one-shot prompting task. CALIBRA operates on a structured artifact bundle with lightweight signal-derived candidate rates, and performs routing, specialized vision-language evidence analysis, critic-based consistency checking, targeted repair, and calibrated arbitration with optional abstention. On our in-house benchmark, CALIBRA consistently outperforms prompting-only baselines across multiple backbones. With Gemini-2.5-Flash, it reduces mean absolute error (MAE) from 5.21 to 3.42, corresponding to a 34.4% reduction over zero-shot prompting and a 16.8% reduction over chain-of-thought prompting. With GPT-4o, it reduces MAE from 5.48 to 3.78, a 31.0% reduction over zero-shot prompting. CALIBRA also improves grounding and consistency in judge-based evaluation, indicating better evidence alignment beyond numerical accuracy alone. Under resource constraints, a routed configuration maintains 93% coverage at 4.1 s average latency and 1.6 GB peak memory. These results show that robust contactless physiological inference depends not only on stronger multimodal backbones, but also on explicit verification of whether predictions are supported by the available evidence.
               </p>
@@ -704,14 +745,14 @@
     <section class="section">
       <div class="container is-max-desktop">
         <div class="explain-block">
-          CALIBRA is a calibration-aware multi-agent framework for contactless respiratory rate estimation. Instead of relying on one-shot prompting alone, it combines routing, evidence verification, repair, and calibrated arbitration to produce more reliable predictions under uncertain visual evidence.
+          <strong><em>CALIBRA</em></strong> is a <strong>calibration-aware multi-agent framework</strong> for <strong>contactless respiratory rate estimation</strong>. Instead of relying on <em>one-shot prompting</em> alone, it combines <strong>routing</strong>, <strong>evidence verification</strong>, <strong>repair</strong>, and <strong>calibrated arbitration</strong> to produce <strong>more reliable predictions</strong> under uncertain visual evidence.
         </div>
       </div>
     </section>
 
     <section class="section">
       <div class="container is-max-desktop">
-        <h2 class="title is-3 has-text-centered">Why CALIBRA</h2>
+        <h2 class="title is-3 has-text-centered title-with-line">Why CALIBRA</h2>
         <div class="columns">
           <div class="column">
             <div class="info-card">
@@ -744,10 +785,10 @@
     <section class="hero is-small">
       <div class="hero-body">
         <div class="container is-max-desktop">
-          <h2 class="title is-3 has-text-centered">Method</h2>
+          <h2 class="title is-3 has-text-centered title-with-line">Method</h2>
 
           <p class="compact-p">
-            Each segment is represented as a four-view artifact bundle with an annotated frame, respiratory signal plot, optical-flow summary, and histogram view, together with deterministic candidate respiratory rates.
+            Each segment is represented as a four-view artifact bundle with an annotated frame, respiratory signal plot, optical-flow summary, and histogram view, together with deterministic candidate respiratory rates. The framework first estimates whether a segment appears easy or ambiguous, then routes it through specialized agents that inspect waveform structure, motion quality, visual periodicity, and disagreement between candidate estimates. A critic module aggregates the evidence, checks consistency, and flags conflicts. When needed, a repair stage revisits the uncertain evidence before an arbiter produces the final respiratory-rate estimate together with a calibrated confidence decision.
           </p>
 
           <div class="section-figure">
@@ -762,7 +803,7 @@
 
     <section class="section">
       <div class="container is-max-desktop">
-        <h2 class="title is-3 has-text-centered section-title-tight">Model's Performance</h2>
+        <h2 class="title is-3 has-text-centered section-title-tight title-with-line">Model's Performance</h2>
 
         <div class="results-shell">
           <div class="results-topline">
@@ -840,7 +881,7 @@
                       <td>0.45</td>
                     </tr>
                     <tr>
-                      <td class="method-cell">CALIBRA (InternVL3-VL-8B)</td>
+                      <td class="method-cell">CALIBRA (InternVL3-8B)</td>
                       <td>4.71</td>
                       <td>6.28</td>
                       <td>0.47</td>
@@ -1032,7 +1073,7 @@
     <section class="hero is-small">
       <div class="hero-body">
         <div class="container is-max-desktop">
-          <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
+          <h2 class="title is-3 has-text-centered title-with-line">Qualitative Results</h2>
 
           <div class="qualitative-wrap">
             <div class="section-figure" style="margin-top:0;">
@@ -1048,7 +1089,7 @@
 
     <section class="section">
       <div class="container is-max-desktop">
-        <h2 class="title is-3 has-text-centered section-title-tight">Ablation</h2>
+        <h2 class="title is-3 has-text-centered section-title-tight title-with-line">Ablation</h2>
         <p class="compact-p">The main gains come from routing, critic checks, repair, and calibrated abstention.</p>
 
         <div class="ablation-figure-wrap">
@@ -1088,7 +1129,7 @@
     <section class="section" id="BibTeX">
       <div class="container is-max-desktop content">
         <div class="bibtex-header">
-          <h2 class="title">BibTeX</h2>
+          <h2 class="title">Citation</h2>
           <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
             <i class="fas fa-copy"></i>
             <span class="copy-text">Copy</span>
