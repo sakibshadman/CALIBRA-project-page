@@ -3,410 +3,486 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <!-- Primary Meta Tags -->
-  <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="PAPER_TITLE - AUTHOR_NAMES">
-  <!-- TODO: Write a compelling 150-160 character description of your research -->
-  <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Add 5-10 relevant keywords for your research area -->
-  <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI">
-  <!-- TODO: List all authors -->
-  <meta name="author" content="FIRST_AUTHOR_NAME, SECOND_AUTHOR_NAME">
+
+  <meta name="title" content="CALIBRA: Calibration-Aware Multi-Agent Verification for Contactless Physiological Monitoring">
+  <meta name="description" content="CALIBRA is a calibration-aware multi-agent verification framework for contactless respiratory-rate estimation that improves over prompting-only baselines through routing, evidence checking, repair, and calibrated arbitration.">
+  <meta name="keywords" content="CALIBRA, contactless physiological monitoring, respiratory rate estimation, multimodal reasoning, verification, vision-language models, CVPR workshop">
+  <meta name="author" content="Masud, Saeid, Roy">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
-  
-  <!-- Open Graph / Facebook -->
+
   <meta property="og:type" content="article">
-  <!-- TODO: Replace with your institution or lab name -->
-  <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
-  <!-- TODO: Same as paper title above -->
-  <meta property="og:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Replace with your actual website URL -->
-  <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
-  <!-- TODO: Create a 1200x630px preview image and update path -->
-  <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
+  <meta property="og:site_name" content="University of Maryland Baltimore County">
+  <meta property="og:title" content="CALIBRA: Calibration-Aware Multi-Agent Verification for Contactless Physiological Monitoring">
+  <meta property="og:description" content="A calibration-aware multi-agent framework for contactless respiratory-rate estimation that routes difficult cases, verifies evidence, repairs conflicts, and abstains when evidence is unreliable.">
+  <meta property="og:url" content="https://sakibshadman.github.io/CALIBRA-project-page/">
+  <meta property="og:image" content="https://sakibshadman.github.io/CALIBRA-project-page/static/images/figure%201.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
-  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
-  <meta property="article:author" content="FIRST_AUTHOR_NAME">
-  <meta property="article:section" content="Research">
-  <meta property="article:tag" content="KEYWORD1">
-  <meta property="article:tag" content="KEYWORD2">
+  <meta property="og:image:alt" content="CALIBRA project preview">
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <!-- TODO: Replace with your lab/institution Twitter handle -->
-  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
-  <!-- TODO: Replace with first author's Twitter handle -->
-  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
-  <!-- TODO: Same as paper title above -->
-  <meta name="twitter:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Same as social preview image above -->
-  <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview">
+  <meta name="twitter:title" content="CALIBRA: Calibration-Aware Multi-Agent Verification for Contactless Physiological Monitoring">
+  <meta name="twitter:description" content="A calibration-aware multi-agent framework for contactless respiratory-rate estimation with routing, evidence verification, repair, and calibrated arbitration.">
+  <meta name="twitter:image" content="https://sakibshadman.github.io/CALIBRA-project-page/static/images/figure%201.png">
 
-  <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="PAPER_TITLE">
-  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
-  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
-  <meta name="citation_publication_date" content="2024">
-  <meta name="citation_conference_title" content="CONFERENCE_NAME">
-  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
-  
-  <!-- Additional SEO -->
   <meta name="theme-color" content="#2563eb">
   <meta name="msapplication-TileColor" content="#2563eb">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  
-  <!-- Preconnect for performance -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://ajax.googleapis.com">
   <link rel="preconnect" href="https://documentcloud.adobe.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
+  <title>CALIBRA</title>
 
-  <!-- TODO: Replace with your paper title and authors -->
-  <title>CAViAR</title>
-  
-  <!-- Favicon and App Icons -->
   <link rel="icon" href="static/images/favicon.png">
   <link rel="apple-touch-icon" href="static/images/favicon.ico">
-  
-  <!-- Critical CSS - Load synchronously -->
+
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-  
-  <!-- Non-critical CSS - Load asynchronously -->
+
   <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  
-  <!-- Fallback for browsers that don't support preload -->
+
   <noscript>
     <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
     <link rel="stylesheet" href="static/css/bulma-slider.min.css">
     <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   </noscript>
-  
-  <!-- Fonts - Optimized loading -->
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Defer non-critical JavaScript -->
+
   <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
   <script defer src="static/js/bulma-carousel.min.js"></script>
   <script defer src="static/js/bulma-slider.min.js"></script>
   <script defer src="static/js/index.js"></script>
-  
-  <!-- Structured Data for Academic Papers -->
+
+  <style>
+    .metric-card {
+      border: 1px solid #e8e8e8;
+      border-radius: 16px;
+      background: #fafafa;
+      padding: 1.2rem;
+      height: 100%;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+    .metric-card h3 {
+      margin-bottom: 0.35rem;
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #1d4ed8;
+    }
+    .info-card {
+      border: 1px solid #ececec;
+      border-radius: 16px;
+      background: #fff;
+      padding: 1.2rem;
+      height: 100%;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+    .section-figure img,
+    .section-figure object {
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+      border: 1px solid #e8e8e8;
+      background: #fff;
+    }
+    .figure-caption {
+      margin-top: 0.75rem;
+      font-size: 0.98rem;
+      color: #555;
+      text-align: center;
+    }
+    .hero-summary {
+      max-width: 980px;
+      margin: 1rem auto 0 auto;
+      color: #444;
+    }
+    .results-side-card ul {
+      margin-left: 1rem;
+    }
+    .section-spacer {
+      margin-top: 1rem;
+    }
+  </style>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
-    "headline": "PAPER_TITLE",
-    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
+    "headline": "CALIBRA: Calibration-Aware Multi-Agent Verification for Contactless Physiological Monitoring",
+    "description": "CALIBRA is a calibration-aware multi-agent verification framework for contactless respiratory-rate estimation that improves over prompting-only baselines through routing, evidence checking, repair, and calibrated arbitration.",
     "author": [
       {
         "@type": "Person",
-        "name": "FIRST_AUTHOR_NAME",
+        "name": "Masud",
         "affiliation": {
           "@type": "Organization",
-          "name": "INSTITUTION_NAME"
+          "name": "University of Maryland Baltimore County"
         }
       },
       {
         "@type": "Person",
-        "name": "SECOND_AUTHOR_NAME",
+        "name": "Saeid",
         "affiliation": {
           "@type": "Organization",
-          "name": "INSTITUTION_NAME"
+          "name": "University of Maryland Baltimore County"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Roy",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "University of Maryland Baltimore County"
         }
       }
     ],
-    "datePublished": "2024-01-01",
     "publisher": {
       "@type": "Organization",
-      "name": "CONFERENCE_OR_JOURNAL_NAME"
+      "name": "CVPR GRAIL-V Workshop"
     },
-    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
-    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
-    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
-    "abstract": "FULL_ABSTRACT_TEXT_HERE",
-    "citation": "BIBTEX_CITATION_HERE",
+    "url": "https://sakibshadman.github.io/CALIBRA-project-page/",
+    "image": "https://sakibshadman.github.io/CALIBRA-project-page/static/images/figure%201.png",
+    "keywords": ["contactless physiological monitoring", "respiratory rate estimation", "multimodal reasoning", "verification", "vision-language models"],
     "isAccessibleForFree": true,
-    "license": "https://creativecommons.org/licenses/by/4.0/",
     "mainEntity": {
       "@type": "WebPage",
-      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
-    },
-    "about": [
-      {
-        "@type": "Thing",
-        "name": "RESEARCH_AREA_1"
-      },
-      {
-        "@type": "Thing", 
-        "name": "RESEARCH_AREA_2"
-      }
-    ]
-  }
-  </script>
-  
-  <!-- Website/Organization Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "INSTITUTION_OR_LAB_NAME",
-    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
-    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
-    "sameAs": [
-      "https://twitter.com/YOUR_TWITTER_HANDLE",
-      "https://github.com/YOUR_GITHUB_USERNAME"
-    ]
+      "@id": "https://sakibshadman.github.io/CALIBRA-project-page/"
+    }
   }
   </script>
 </head>
 <body>
 
-
-  <!-- Scroll to Top Button -->
   <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
     <i class="fas fa-chevron-up"></i>
   </button>
 
-  <!-- More Works Dropdown -->
-
   <main id="main-content">
+
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-1 publication-title">CAViAR: Quality-Aware Vision-and-Radio Fusion for Relative Range Estimation among Collaborative Autonomous Agents</h1>
+            <h1 class="title is-1 publication-title">
+              CALIBRA: Calibration-Aware Multi-Agent Verification for Contactless Physiological Monitoring
+            </h1>
+
             <div class="is-size-5 publication-authors">
-            <span class="author-block"><a href="">Gaurav Shinde</a>,</span>
-            <span class="author-block"><a href="">Anuradha Ravi</a>,</span>
-            <span class="author-block"><a href="">Jared Lewis</a>,</span>
-            <span class="author-block"><a href="">Andre Harrison</a>,</span>
-            <span class="author-block"><a href="">Henry Gardiner</a>,</span>
-            <span class="author-block"><a href="">Mohammad Saeid Anwar</a>,<span>
-            <span class="author-block"><a href="">Shadman Sakib</a>,</span>
-            <span class="author-block"><a href="">Jade Freeman</a>,</span>
-            <span class="author-block"><a href="">Nirmalya Roy</a></span>
+              <span class="author-block"><a href="">Masud</a>,</span>
+              <span class="author-block"><a href="">Saeid</a>,</span>
+              <span class="author-block"><a href="">Roy</a></span>
             </div>
-                  <div class="is-size-5 publication-authors">
-                    <span class="author-block">
-                      University of Maryland, Baltimore County (UMBC),
-                      DEVCOM Army Research Lab,
-                      University of Maryland
-                    </span>
-                    <br>
 
-                    <span class="accept-badge">
-                       🔥Accepted at WoWMoM 2026
-                    </span>
-                </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                University of Maryland Baltimore County (UMBC)
+              </span>
+              <br>
+              <span class="accept-badge">
+                Accepted at CVPR GRAIL-V Workshop
+              </span>
+            </div>
 
+            <p class="hero-summary is-size-5">
+              A calibration-aware multi-agent framework for contactless respiratory-rate estimation that treats prediction as an evidence-grounded verification problem rather than a one-shot prompting task.
+            </p>
 
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- TODO: Update with your arXiv paper ID -->
-                      <span class="link-block">
-                        <a href="" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper (coming soon..)</span>
-                      </a>
-                    </span>
-
-                    <!-- TODO: Add your supplementary material PDF or remove this section -->
-                    <span class="link-block">
-                      <a href="" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-database"></i>
-                        </span>
-                        <span>Dataset (coming soon..)</span>
-                      </a>
-                    </span>
-
-
-                  <!-- TODO: Replace with your GitHub repository URL -->
-                  <span class="link-block">
-                    <a href="" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="" target="_blank" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
-                      <i class="fab fa-github"></i>
+                      <i class="fas fa-file-pdf"></i>
                     </span>
-                    <span>Code (coming soon..)</span>
+                    <span>Paper (coming soon)</span>
                   </a>
                 </span>
 
-                <!-- TODO: Update with your arXiv paper ID -->
-                
-                </a>
-              </span>
+                <span class="link-block">
+                  <a href="" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv (coming soon)</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code (coming soon)</span>
+                  </a>
+                </span>
+              </div>
             </div>
+
+            <div class="columns is-centered section-spacer">
+              <div class="column is-4">
+                <div class="metric-card">
+                  <h3>34.4%</h3>
+                  <p>MAE reduction over zero-shot prompting with Gemini-2.5-Flash</p>
+                </div>
+              </div>
+              <div class="column is-4">
+                <div class="metric-card">
+                  <h3>31.0%</h3>
+                  <p>MAE reduction over zero-shot prompting with GPT-4o</p>
+                </div>
+              </div>
+              <div class="column is-4">
+                <div class="metric-card">
+                  <h3>93%</h3>
+                  <p>Coverage in routed mode at 4.1 s average latency and 1.6 GB peak RAM</p>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <section class="hero teaser">
+    <div class="container is-max-widescreen">
+      <div class="hero-body">
+        <div class="section-figure">
+          <img src="static/images/figure%201.png" alt="Figure 1">
+        </div>
+        <p class="figure-caption">
+          CALIBRA improves over one-shot prompting by routing difficult segments, checking agreement across evidence channels, repairing conflicts when needed, and abstaining when evidence remains unreliable.
+        </p>
+      </div>
+    </div>
+  </section>
 
-<!-- Teaser image -->
-<section class="hero teaser">
-  <div class="container is-max-widescreen">
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Contactless physiological monitoring offers a promising path toward low-burden health sensing, but reliable inference from short video segments remains difficult when visual evidence is weak, corrupted by motion, or spectrally ambiguous. We present CALIBRA, a calibration-aware multi-agent framework for contactless respiratory-rate estimation that treats prediction as an evidence-grounded verification problem rather than a one-shot prompting task. CALIBRA operates on a structured artifact bundle with lightweight signal-derived candidate rates, and performs routing, specialized vision-language evidence analysis, critic-based consistency checking, targeted repair, and calibrated arbitration with optional abstention. On our in-house benchmark, CALIBRA consistently outperforms prompting-only baselines across multiple backbones while also improving grounding, consistency, and practical deployment trade-offs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Why CALIBRA</h2>
+      <div class="columns">
+        <div class="column">
+          <div class="info-card">
+            <h3 class="title is-5">Prompt-only inference can fail quietly</h3>
+            <p>
+              Difficult segments often contain motion corruption, weak periodicity, or harmonic ambiguity. A model can still output a numerically plausible respiratory rate even when the underlying evidence is inconsistent.
+            </p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="info-card">
+            <h3 class="title is-5">Verification improves decision discipline</h3>
+            <p>
+              CALIBRA reframes estimation as a verification problem: candidate rates are proposed, checked against structured evidence, selectively repaired when conflicts remain unresolved, and only then converted into a final prediction.
+            </p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="info-card">
+            <h3 class="title is-5">Reliability matters in deployment</h3>
+            <p>
+              The framework can abstain when evidence is not coherent enough, improving calibration and safety instead of forcing unreliable predictions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-small">
     <div class="hero-body">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Method</h2>
 
-      <img src="static/images/CAVIAR overall framework.png"
-           alt="CAVIAR overall framework"
-           style="width:100%; height:auto;">
-
-      <h2 class="subtitle has-text-centered">
-        CAViAR consists of two independent modality-specific range
-        estimators for vision and radio. The vision estimator uses a relative
-        pose regression (RPR) network, while the radio estimator employs
-        a path loss model (PLM). To assess the reliability of each estimate,
-        we introduce modality-specific quality estimators that take temporal
-        features as input and output quality scores. A statistical fusion step
-        then combines the two range estimates.
-      </h2>
-
-    </div>
-  </div>
-</section>
-
-<!-- End teaser video -->
-
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <!-- TODO: Replace with your paper abstract -->
           <p>
-            In mission-critical scenarios, autonomous agents often
-operate in GPS-denied or GPS-degraded environments, making it challenging to localize agents relative to themselves and objects of interest
-(e.g., potential cover) or adversarial robots. While vision- and radiobased modalities have individually been used to estimate relative ranges
-between agents and surrounding objects, each modality suffers from inherent limitations. Vision-based range estimation degrades significantly
-under low image overlap, partial visibility, or when an agent is too close
-to an object, resulting in effective zoom-in and loss of geometric context.
-Conversely, radio-based ranging is susceptible to multipath interference,
-signal fading, and environmental variability, which can substantially
-reduce range accuracy and reliability. To address these challenges, we
-introduce CAViAR, a quality-aware multimodal fusion framework for accurate relative range estimation among collaborative autonomous agents.
-CAViAR assigns modality-specific reliability scores and performs statistical fusion to adaptively weigh vision and radio inputs based on their
-estimated quality. The framework employs modality-specific quality
-estimators augmented with temporal features and integrates MBConv
-blocks to enable efficient feature processing on resource-constrained
-robotic platforms. We validate CAViAR on ROSbot 2 and ROSbot 2
-Pro platforms using an in-house dataset collected across diverse indoor
-and outdoor environments. Experimental results demonstrate that
-our approach outperforms single-modality baselines by approximately
-21% over vision-only and 36% over radio-only range estimates.
-Moreover, CAViAR adapts robustly to variations in scene structure,
-viewpoint overlap, and occlusions without requiring fine-tuning on new
-environments, highlighting its practicality for real-world deployment.
+            Each input segment is represented as a four-view artifact bundle with an annotated frame, combined respiratory signal plot, optical-flow summary, and histogram view, together with two deterministic candidate respiratory rates. CALIBRA then performs routing, specialist evidence analysis, critic-based consistency checking, targeted repair, and calibrated arbitration before producing the final estimate.
           </p>
         </div>
+
+        <div class="section-figure">
+          <img src="static/images/figure%202.png" alt="Figure 2">
+        </div>
+        <p class="figure-caption">
+          Overview of CALIBRA’s evidence-grounded verification pipeline.
+        </p>
       </div>
     </div>
-  </div>
-</section>
-<!-- End paper abstract -->
+  </section>
 
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Main Results</h2>
 
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
+        <div class="columns is-vcentered">
+          <div class="column is-7">
+            <div class="section-figure">
+              <object data="static/images/figure%203.pdf" type="application/pdf" width="100%" height="500">
+                <p><a href="static/images/figure%203.pdf" target="_blank">Open Figure 3 PDF</a></p>
+              </object>
+            </div>
+            <p class="figure-caption">
+              Segment-level MAE for prompting baselines and CALIBRA across backbones.
+            </p>
+          </div>
 
-      <h2 class="title is-3 has-text-centered">Quality Estimator</h2>
+          <div class="column is-5">
+            <div class="info-card results-side-card">
+              <h3 class="title is-5">Key benchmark takeaways</h3>
+              <ul>
+                <li><strong>Gemini-2.5-Flash:</strong> MAE 3.42</li>
+                <li><strong>GPT-4o:</strong> MAE 3.78</li>
+                <li><strong>Qwen3-VL-8B:</strong> MAE 4.35</li>
+                <li><strong>DeepSeek-R1-7B:</strong> MAE 4.58</li>
+                <li><strong>InternVL3-8B:</strong> MAE 4.71</li>
+              </ul>
+              <p>
+                CALIBRA achieves the lowest MAE in every tested setting, indicating that explicit verification is more effective than longer prompting alone.
+              </p>
+            </div>
+          </div>
+        </div>
 
-      <div class="results-carousel">
-        <div class="item">
-          <img src="static/images/Quality estimator.png"
-               alt="Quality Estimator Architecture"
-               loading="lazy"/>
+        <div class="columns section-spacer">
+          <div class="column is-6">
+            <div class="info-card">
+              <h3 class="title is-5">Closed-model gains</h3>
+              <p>
+                On Gemini-2.5-Flash, CALIBRA reduces MAE from 5.21 to 3.42 relative to zero-shot prompting. On GPT-4o, it reduces MAE from 5.48 to 3.78.
+              </p>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="info-card">
+              <h3 class="title is-5">Open-model gains too</h3>
+              <p>
+                Open models also improve consistently, showing that the framework does not depend on a single proprietary backbone.
+              </p>
+            </div>
+          </div>
+        </div>
 
-          <h2 class="subtitle has-text-centered">
-            Quality estimator employs a learned module based on a multi-layer
-            perceptron (MLP) and a gated recurrent unit (GRU). The estimator
-            outputs quality weights representing the reliability of each
-            modality for accurate fusion.
-          </h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Qualitative Example</h2>
+
+        <div class="columns is-vcentered">
+          <div class="column is-7">
+            <div class="section-figure">
+              <img src="static/images/figure%204.png" alt="Figure 4">
+            </div>
+            <p class="figure-caption">
+              A representative challenging segment where CALIBRA resolves the final prediction through routing, evidence verification, and calibrated arbitration.
+            </p>
+          </div>
+
+          <div class="column is-5">
+            <div class="info-card">
+              <h3 class="title is-5">What this shows</h3>
+              <p>
+                Difficult segments often contain partially informative but mutually inconsistent cues. A prompt-only model may still return a plausible rate, yet the waveform, histogram, motion summary, and deterministic candidates may not agree. CALIBRA improves decision discipline by forcing agreement checks before commitment.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Efficiency and Ablation</h2>
+
+        <div class="columns">
+          <div class="column is-6">
+            <div class="info-card">
+              <h3 class="title is-5">Deployment efficiency</h3>
+              <ul>
+                <li><strong>Avg. latency:</strong> 4.1 s</li>
+                <li><strong>P95 latency:</strong> 8.7 s</li>
+                <li><strong>Peak RAM:</strong> 1.6 GB</li>
+                <li><strong>Coverage:</strong> 93%</li>
+              </ul>
+              <p>
+                The routed configuration provides the best operating point, retaining most of the reliability gains without the full overhead of always-on multi-pass execution.
+              </p>
+            </div>
+          </div>
+
+          <div class="column is-6">
+            <div class="info-card">
+              <h3 class="title is-5">Component ablation</h3>
+              <p>
+                The full system achieves MAE 3.42. Removing the critic increases MAE to 3.94, removing repair increases it to 3.82, disabling routing increases it to 3.66, and disabling abstention increases it to 3.59.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-figure section-spacer">
+          <object data="static/images/figure%205.pdf" type="application/pdf" width="100%" height="500">
+            <p><a href="static/images/figure%205.pdf" target="_blank">Open Figure 5 PDF</a></p>
+          </object>
+        </div>
+        <p class="figure-caption">
+          Component ablation of CALIBRA on the best-performing configuration.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Dataset and Setup</h2>
+          <div class="content has-text-justified">
+            <p>
+              We evaluate CALIBRA on an in-house video-based respiratory dataset with 50 RGB recordings captured under diverse breathing patterns, viewpoints, lighting conditions, and background motion levels. Recordings are 2.5–3.5 minutes long at 1920 × 1080 and 30 fps, with subject-wise evaluation and synchronized Vernier Go Direct Respiration Belt ground truth.
+            </p>
+          </div>
         </div>
       </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- End image carousel -->
-
-
-
-
-<!-- Youtube video -->
-<!-- Results -->
-<!-- End Results -->
-
-<!-- End youtube video -->
-
-
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3 has-text-centered">Results</h2>
-
-      <div class="columns is-centered">
-        <div class="column is-four-fifths has-text-centered">
-          <img src="static/images/results.png"
-               alt="Results"
-               loading="lazy"
-               style="width:100%; height:auto;">
-          <p class="subtitle has-text-centered" style="margin-top: 0.75rem;">
-            Key quantitative results of CAViAR.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
-
-
-
-
-
-
-<!-- Paper poster -->
-<!--End paper poster -->
-
-
-
-<!--BibTex citation -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <div class="bibtex-header">
@@ -416,38 +492,29 @@ environments, highlighting its practicality for real-world deployment.
           <span class="copy-text">Copy</span>
         </button>
       </div>
-      <pre id="bibtex-code"><code>@article{Shinde_2026_WoWMoM,
-  title={CAViAR: Quality-Aware Vision-and-Radio Fusion for Relative Range Estimation among Collaborative Autonomous Agents},
-  author={Shinde, Gaurav and Ravi, Anuradha and Lewis, Jared and Harrison, Andre and Gardiner, Henry and Anwar, MS and Sakib, Shadman and Freeman, Jade and Roy, Nirmalya},
-  booktitle={2026 IEEE 27th International Symposium on a World of Wireless, Mobile and Multimedia Networks (WoWMoM)},
+<pre id="bibtex-code"><code>@inproceedings{calibra_cvpr_grailv,
+  title={CALIBRA: Calibration-Aware Multi-Agent Verification for Contactless Physiological Monitoring},
+  author={Masud and Saeid and Roy},
+  booktitle={CVPR GRAIL-V Workshop},
   year={2026}
 }</code></pre>
     </div>
-</section>
-<!--End BibTex citation -->
-
+  </section>
 
   <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template.
-          </p>
-
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
-
-  </body>
-  </html>
+  </main>
+</body>
+</html>
