@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <meta name="title" content="CALIBRA: Calibration-Aware Multi-Agent Verification for Contactless Physiological Monitoring">
   <meta name="description" content="CALIBRA is a calibration-aware multi-agent framework for contactless respiratory rate estimation that improves over prompting-only baselines through routing, evidence verification, repair, and calibrated arbitration.">
   <meta name="keywords" content="CALIBRA, respiratory rate estimation, contactless physiological monitoring, multimodal reasoning, verification, vision-language models, CVPR">
@@ -15,12 +16,12 @@
   <meta property="og:title" content="CALIBRA: Calibration-Aware Multi-Agent Verification for Contactless Physiological Monitoring">
   <meta property="og:description" content="A calibration-aware multi-agent framework for contactless respiratory rate estimation with routing, evidence verification, repair, and calibrated arbitration.">
   <meta property="og:url" content="https://sakibshadman.github.io/CALIBRA-project-page/">
-  <meta property="og:image" content="https://sakibshadman.github.io/CALIBRA-project-page/static/images/figure%201.png">
+  <meta property="og:image" content="https://sakibshadman.github.io/CALIBRA-project-page/static/images/figure 1.png">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="CALIBRA: Calibration-Aware Multi-Agent Verification for Contactless Physiological Monitoring">
   <meta name="twitter:description" content="A calibration-aware multi-agent framework for contactless respiratory rate estimation with routing, evidence verification, repair, and calibrated arbitration.">
-  <meta name="twitter:image" content="https://sakibshadman.github.io/CALIBRA-project-page/static/images/figure%201.png">
+  <meta name="twitter:image" content="https://sakibshadman.github.io/CALIBRA-project-page/static/images/figure 1.png">
 
   <meta name="theme-color" content="#2563eb">
   <meta name="msapplication-TileColor" content="#2563eb">
@@ -32,6 +33,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
   <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -51,18 +53,28 @@
   <style>
     :root {
       --primary: #1d4ed8;
+      --primary-dark: #173ea6;
       --primary-soft: #dbeafe;
+      --accent: #10b981;
+      --accent-soft: #d1fae5;
       --ink: #111827;
       --muted: #4b5563;
       --border: #e5e7eb;
       --bg-soft: #f8fafc;
-      --accent: #7c3aed;
-      --accent-soft: #ede9fe;
+      --bg-card: #ffffff;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --shadow-soft: 0 6px 18px rgba(15, 23, 42, 0.06);
+      --radius: 18px;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       font-family: 'Inter', sans-serif;
       color: var(--ink);
+      background: #ffffff;
     }
 
     .hero-gradient {
@@ -73,9 +85,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 1.25rem;
+      gap: 1rem;
       flex-wrap: wrap;
-      margin-bottom: 1.1rem;
+      margin-bottom: 1rem;
     }
 
     .hero-logo-row img {
@@ -86,7 +98,7 @@
       border-radius: 14px;
       padding: 0.45rem 0.7rem;
       border: 1px solid var(--border);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+      box-shadow: var(--shadow-soft);
     }
 
     .accept-badge-wrap {
@@ -101,12 +113,11 @@
       gap: 0.55rem;
       padding: 0.85rem 1.2rem;
       border-radius: 999px;
-      background: linear-gradient(135deg, var(--primary-soft), var(--accent-soft));
+      background: linear-gradient(135deg, #eef2ff, #ecfeff);
       border: 1px solid #c7d2fe;
       color: #1f2937;
       font-weight: 800;
-      letter-spacing: 0.01em;
-      box-shadow: 0 10px 30px rgba(29,78,216,0.10);
+      box-shadow: 0 10px 25px rgba(29, 78, 216, 0.10);
     }
 
     .accept-badge .tag-pill {
@@ -119,7 +130,7 @@
     }
 
     .hero-summary {
-      max-width: 980px;
+      max-width: 900px;
       margin: 1rem auto 0 auto;
       color: #374151;
       line-height: 1.7;
@@ -145,7 +156,7 @@
       background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
       padding: 1.2rem;
       height: 100%;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+      box-shadow: var(--shadow-soft);
     }
 
     .metric-card h3 {
@@ -155,13 +166,13 @@
       color: var(--primary);
     }
 
-    .info-card, .table-card {
+    .info-card {
       border: 1px solid var(--border);
-      border-radius: 18px;
+      border-radius: var(--radius);
       background: #ffffff;
       padding: 1.25rem;
       height: 100%;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+      box-shadow: var(--shadow-soft);
     }
 
     .section-figure {
@@ -174,11 +185,12 @@
       width: 100%;
       max-width: 100%;
       height: auto;
-      border-radius: 14px;
+      border-radius: 16px;
       border: 1px solid var(--border);
       background: white;
       display: block;
       margin: 0 auto;
+      box-shadow: var(--shadow-soft);
     }
 
     .figure-caption {
@@ -189,67 +201,197 @@
       line-height: 1.6;
     }
 
-    .spacer-top {
-      margin-top: 1rem;
-    }
-
     .publication-authors a {
       color: inherit;
       text-decoration: none;
     }
 
-    .section-intro {
-      color: var(--muted);
-      max-width: 920px;
-      margin: 0 auto 1rem auto;
-      text-align: center;
-      line-height: 1.7;
-    }
-
-    .table-card {
-      overflow-x: auto;
-    }
-
-    .table-card + .table-card {
+    .spacer-top {
       margin-top: 1rem;
     }
 
-    .table-title {
-      font-size: 1.15rem;
-      font-weight: 800;
-      margin-bottom: 0.35rem;
-    }
-
-    .table-subtitle {
+    .compact-p {
+      max-width: 860px;
+      margin: 0 auto 1rem auto;
+      text-align: center;
       color: var(--muted);
-      margin-bottom: 0.9rem;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
-    table.paper-table {
+    .section-title-tight {
+      margin-bottom: 0.75rem !important;
+    }
+
+    .results-shell {
+      margin-top: 1rem;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .results-topline {
+      max-width: 940px;
+      margin: 0 auto 1.25rem auto;
+      padding: 1.2rem 1.35rem;
+      border-left: 5px solid #22c55e;
+      background: #f0fdf4;
+      border-radius: 14px;
+      color: #1f2937;
+      font-size: 1.06rem;
+      line-height: 1.8;
+    }
+
+    .results-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.35rem;
+    }
+
+    .results-tab-btn {
+      border: 1px solid #d1d5db;
+      background: #fff;
+      color: #1f2937;
+      border-radius: 10px;
+      padding: 0.7rem 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .results-tab-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .results-tab-btn.is-active {
+      background: #1f2937;
+      color: #fff;
+      border-color: #1f2937;
+    }
+
+    .results-panel {
+      display: none;
+    }
+
+    .results-panel.is-active {
+      display: block;
+    }
+
+    .results-metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .results-stat {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.2rem 1rem;
+      text-align: center;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .results-stat .value {
+      font-size: 2.3rem;
+      font-weight: 800;
+      line-height: 1.1;
+      color: #111827;
+    }
+
+    .results-stat .label {
+      margin-top: 0.45rem;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .results-stat .sub {
+      margin-top: 0.18rem;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .fancy-table-card {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .fancy-table-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 1.1rem;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .fancy-table-head h3 {
+      margin: 0;
+      font-size: 1.08rem;
+      font-weight: 800;
+    }
+
+    .fancy-table-chip {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: var(--primary-dark);
+      padding: 0.35rem 0.7rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table.fancy-paper-table {
       width: 100%;
-      border-collapse: collapse;
+      border-collapse: separate;
+      border-spacing: 0;
+      min-width: 760px;
       font-size: 0.96rem;
-      min-width: 700px;
     }
 
-    table.paper-table thead th {
+    table.fancy-paper-table thead th {
       background: #f8fafc;
       color: #111827;
       font-weight: 800;
-      border-bottom: 2px solid #d1d5db;
-    }
-
-    table.paper-table th,
-    table.paper-table td {
-      padding: 0.78rem 0.8rem;
-      border: 1px solid #e5e7eb;
+      padding: 0.95rem 0.9rem;
+      border-bottom: 1px solid var(--border);
       text-align: left;
-      vertical-align: top;
+      white-space: nowrap;
     }
 
-    table.paper-table tbody tr:nth-child(even) {
-      background: #fcfdff;
+    table.fancy-paper-table tbody td {
+      padding: 0.95rem 0.9rem;
+      border-bottom: 1px solid #eef2f7;
+      color: #1f2937;
+      vertical-align: middle;
+    }
+
+    table.fancy-paper-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    table.fancy-paper-table tbody tr:hover {
+      background: #fafcff;
+    }
+
+    .method-cell {
+      font-weight: 700;
+      color: #111827;
     }
 
     .best {
@@ -257,8 +399,32 @@
       color: var(--primary);
     }
 
-    .two-col-gap {
-      gap: 1rem;
+    .mini-note {
+      margin-top: 0.7rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .figure-card {
+      padding: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .quote-highlight {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 1.2rem 1.3rem;
+      border-left: 5px solid #22c55e;
+      background: #f0fdf4;
+      color: #1f2937;
+      border-radius: 14px;
+      line-height: 1.85;
+      font-size: 1.04rem;
+      font-style: italic;
     }
 
     .bibtex-header {
@@ -290,14 +456,36 @@
       background: #f5f5f5;
     }
 
+    @media (max-width: 1024px) {
+      .results-metric-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
     @media (max-width: 768px) {
       .hero-logo-row img {
         height: 56px;
       }
 
+      .results-shell {
+        padding: 1rem;
+      }
+
+      .results-topline,
+      .quote-highlight {
+        font-size: 1rem;
+        padding: 1rem;
+      }
+
+      .results-metric-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .results-stat .value {
+        font-size: 2rem;
+      }
+
       .accept-badge {
-        border-radius: 22px;
-        padding: 0.9rem 1rem;
         text-align: center;
         line-height: 1.5;
       }
@@ -319,9 +507,21 @@
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
+
+    function showResultsTab(event, tabId) {
+      const panels = document.querySelectorAll('.results-panel');
+      const buttons = document.querySelectorAll('.results-tab-btn');
+
+      panels.forEach(panel => panel.classList.remove('is-active'));
+      buttons.forEach(button => button.classList.remove('is-active'));
+
+      document.getElementById(tabId).classList.add('is-active');
+      event.currentTarget.classList.add('is-active');
+    }
   </script>
 </head>
 <body>
+
   <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
     <i class="fas fa-chevron-up"></i>
   </button>
@@ -335,8 +535,8 @@
             <div class="column has-text-centered">
 
               <div class="hero-logo-row">
-                <img src="static/images/cvpr.png" alt="CVPR logo">
-                <img src="static/images/logo_grail.png" alt="GRAIL-V logo">
+                <img src="static/images/cvpr.png" alt="CVPR logo" onerror="this.style.display='none'">
+                <img src="static/images/logo_grail.png" alt="GRAIL-V logo" onerror="this.style.display='none'">
               </div>
 
               <h1 class="title is-1 publication-title">
@@ -371,18 +571,22 @@
                   <span class="icon"><i class="fas fa-file-pdf"></i></span>
                   <span>CVPR Proceedings Paper (Coming Soon)</span>
                 </a>
+
                 <a href="" target="_blank" class="button is-dark is-rounded">
                   <span class="icon"><i class="ai ai-arxiv"></i></span>
                   <span>arXiv (Coming Soon)</span>
                 </a>
+
                 <a href="" target="_blank" class="button is-dark is-rounded">
                   <span class="icon"><i class="fas fa-video"></i></span>
                   <span>Video (Coming Soon)</span>
                 </a>
+
                 <a href="" target="_blank" class="button is-dark is-rounded">
                   <span class="icon"><i class="fas fa-database"></i></span>
                   <span>Dataset (Coming Soon)</span>
                 </a>
+
                 <a href="" target="_blank" class="button is-dark is-rounded">
                   <span class="icon"><i class="fab fa-github"></i></span>
                   <span>Code (Coming Soon)</span>
@@ -420,7 +624,7 @@
       <div class="container is-max-widescreen">
         <div class="hero-body">
           <div class="section-figure">
-            <img src="static/images/figure%201.png" alt="Figure 1">
+            <img src="static/images/figure 1.png" alt="Figure 1" onerror="this.onerror=null; this.src='static/images/figure1.png';">
           </div>
           <p class="figure-caption">
             CALIBRA improves over one-shot prompting by routing difficult segments, checking agreement across evidence channels, repairing conflicts when needed, and abstaining when evidence remains unreliable.
@@ -436,7 +640,7 @@
             <h2 class="title is-3">Abstract</h2>
             <div class="content has-text-justified">
               <p>
-                Contactless physiological monitoring offers a promising path toward low-burden health sensing, but reliable inference from short video segments remains difficult when visual evidence is weak, corrupted by motion, or spectrally ambiguous. We present CALIBRA, a calibration-aware multi-agent framework for contactless respiratory rate (RR) estimation that treats prediction as an evidence-grounded verification problem rather than a one-shot prompting task. CALIBRA operates on a structured artifact bundle with lightweight signal-derived candidate rates, and performs routing, specialized vision-language evidence analysis, critic-based consistency checking, targeted repair, and calibrated arbitration with optional abstention. On our in-house benchmark, CALIBRA consistently outperforms prompting-only baselines across multiple backbones. With Gemini-2.5-Flash, it reduces mean absolute error (MAE) from 5.21 to 3.42, corresponding to a 34.4% reduction over zero-shot prompting and a 16.8% reduction over chain-of-thought prompting. With GPT-4o, it reduces MAE from 5.48 to 3.78, a 31.0% reduction over zero-shot prompting. CALIBRA also improves grounding and consistency in judge-based evaluation, indicating better evidence alignment beyond numerical accuracy alone. Under resource constraints, a routed configuration maintains 93% coverage at 4.1 s average latency and 1.6 GB peak memory. These results show that robust contactless physiological inference depends not only on stronger multimodal backbones, but also on explicit verification of whether predictions are supported by the available evidence.
+                Contactless physiological monitoring offers a promising path toward low-burden health sensing, but reliable inference from short video segments remains difficult when visual evidence is weak, corrupted by motion, or spectrally ambiguous. We present CALIBRA, a calibration-aware multi-agent framework for contactless respiratory rate estimation that treats prediction as an evidence-grounded verification problem rather than a one-shot prompting task. CALIBRA operates on a structured artifact bundle with lightweight signal-derived candidate rates, and performs routing, specialized vision-language evidence analysis, critic-based consistency checking, targeted repair, and calibrated arbitration with optional abstention. On our in-house benchmark, CALIBRA consistently outperforms prompting-only baselines across multiple backbones. With Gemini-2.5-Flash, it reduces mean absolute error (MAE) from 5.21 to 3.42, corresponding to a 34.4% reduction over zero-shot prompting and a 16.8% reduction over chain-of-thought prompting. With GPT-4o, it reduces MAE from 5.48 to 3.78, a 31.0% reduction over zero-shot prompting. CALIBRA also improves grounding and consistency in judge-based evaluation, indicating better evidence alignment beyond numerical accuracy alone. Under resource constraints, a routed configuration maintains 93% coverage at 4.1 s average latency and 1.6 GB peak memory. These results show that robust contactless physiological inference depends not only on stronger multimodal backbones, but also on explicit verification of whether predictions are supported by the available evidence.
               </p>
             </div>
           </div>
@@ -452,7 +656,7 @@
             <div class="info-card">
               <h3 class="title is-5">Prompt-only inference can fail quietly</h3>
               <p>
-                Difficult segments often contain motion corruption, weak periodicity, or harmonic ambiguity. A model can still output a numerically plausible respiratory rate even when the underlying evidence is inconsistent.
+                Difficult segments often contain motion corruption, weak periodicity, or harmonic ambiguity. A model can still output a plausible respiratory rate even when the evidence is inconsistent.
               </p>
             </div>
           </div>
@@ -460,7 +664,7 @@
             <div class="info-card">
               <h3 class="title is-5">Verification improves decision discipline</h3>
               <p>
-                CALIBRA reframes estimation as a verification problem: candidate rates are proposed, checked against structured evidence, selectively repaired when conflicts remain unresolved, and only then converted into a final prediction.
+                CALIBRA checks candidate rates against structured evidence, selectively repairs conflicts, and commits only after consistency improves.
               </p>
             </div>
           </div>
@@ -480,13 +684,13 @@
       <div class="hero-body">
         <div class="container is-max-desktop">
           <h2 class="title is-3 has-text-centered">Method</h2>
-          <div class="content has-text-justified">
-            <p>
-              Each input segment is represented as a four-view artifact bundle with an annotated frame, combined respiratory signal plot, optical-flow summary, and histogram view, together with two deterministic candidate respiratory rates. CALIBRA then performs routing, specialist evidence analysis, critic-based consistency checking, targeted repair, and calibrated arbitration before producing the final estimate.
-            </p>
-          </div>
+
+          <p class="compact-p">
+            Each segment is represented as a four-view artifact bundle with an annotated frame, respiratory signal plot, optical-flow summary, and histogram view, together with deterministic candidate respiratory rates.
+          </p>
+
           <div class="section-figure">
-            <img src="static/images/figure%202.png" alt="Figure 2">
+            <img src="static/images/figure 2.png" alt="Figure 2" onerror="this.onerror=null; this.src='static/images/figure2.png';">
           </div>
           <p class="figure-caption">
             Overview of CALIBRA’s evidence-grounded verification pipeline.
@@ -495,137 +699,283 @@
       </div>
     </section>
 
-    <section class="section is-light">
+    <section class="section">
       <div class="container is-max-desktop">
-        <h2 class="title is-3 has-text-centered">Results Tables</h2>
-        <p class="section-intro">
-          All benchmark summaries below are rendered as HTML tables rather than figure screenshots, so the results are searchable, selectable, and easier to maintain.
-        </p>
+        <h2 class="title is-3 has-text-centered section-title-tight">Model's Performance</h2>
 
-        <div class="table-card">
-          <div class="table-title">Dataset Summary</div>
-          <div class="table-subtitle">In-house video-based respiratory dataset.</div>
-          <table class="paper-table">
-            <thead>
-              <tr>
-                <th>Attribute</th>
-                <th>Value</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>Number of recordings</td><td>50 RGB videos</td></tr>
-              <tr><td>Recording duration</td><td>2.5–3.5 min</td></tr>
-              <tr><td>Resolution / frame rate</td><td>1920 × 1080 / 30 fps</td></tr>
-              <tr><td>Breathing conditions</td><td>Spontaneous, slow-paced, regular, fast</td></tr>
-              <tr><td>Camera viewpoints</td><td>Frontal, oblique, overhead, supine</td></tr>
-              <tr><td>Reference device</td><td>Vernier Go Direct Respiration Belt</td></tr>
-              <tr><td>Segment length / label window</td><td>6 s / 30 s (10 s step)</td></tr>
-              <tr><td>Evaluation split</td><td>Subject-wise</td></tr>
-            </tbody>
-          </table>
-        </div>
+        <div class="results-shell">
+          <div class="results-topline">
+            CALIBRA improves error, grounding, and consistency while remaining practical under routed deployment.
+          </div>
 
-        <div class="table-card">
-          <div class="table-title">Agentic Estimation Results</div>
-          <div class="table-subtitle">Lower is better for MAE, RMSE, and Bias.</div>
-          <table class="paper-table">
-            <thead>
-              <tr>
-                <th>Model / Framework</th>
-                <th>MAE ↓</th>
-                <th>RMSE ↓</th>
-                <th>Bias ↓</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>CALIBRA (Gemini-2.5-Flash)</td><td class="best">3.42</td><td class="best">4.88</td><td class="best">0.29</td></tr>
-              <tr><td>CALIBRA (GPT-4o)</td><td>3.78</td><td>5.26</td><td>0.34</td></tr>
-              <tr><td>CALIBRA (Qwen3-VL-8B)</td><td>4.35</td><td>5.92</td><td>0.41</td></tr>
-              <tr><td>CALIBRA (DeepSeek-R1-7B)</td><td>4.58</td><td>6.15</td><td>0.45</td></tr>
-              <tr><td>CALIBRA (InternVL3-8B)</td><td>4.71</td><td>6.28</td><td>0.47</td></tr>
-            </tbody>
-          </table>
-        </div>
+          <div class="results-tabs">
+            <button class="results-tab-btn is-active" onclick="showResultsTab(event, 'combined-tab')">Combined</button>
+            <button class="results-tab-btn" onclick="showResultsTab(event, 'quality-tab')">Quality</button>
+            <button class="results-tab-btn" onclick="showResultsTab(event, 'efficiency-tab')">Efficiency</button>
+          </div>
 
-        <div class="table-card">
-          <div class="table-title">Agentic Behavior Metrics</div>
-          <div class="table-subtitle">Higher is better across all metrics below.</div>
-          <table class="paper-table">
-            <thead>
-              <tr>
-                <th>Model / Framework</th>
-                <th>RG ↑</th>
-                <th>CRA ↑</th>
-                <th>CS ↑</th>
-                <th>Abst. Prec. ↑</th>
-                <th>Abst. Rec. ↑</th>
-                <th>EAR ↑</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>CALIBRA (Gemini-2.5-Flash)</td><td class="best">0.62</td><td class="best">0.79</td><td class="best">0.90</td><td class="best">0.86</td><td class="best">0.73</td><td class="best">0.82</td></tr>
-              <tr><td>CALIBRA (GPT-4o)</td><td>0.55</td><td>0.76</td><td>0.88</td><td>0.83</td><td>0.70</td><td>0.79</td></tr>
-              <tr><td>CALIBRA (Qwen3-VL-8B)</td><td>0.46</td><td>0.71</td><td>0.85</td><td>0.78</td><td>0.65</td><td>0.74</td></tr>
-              <tr><td>CALIBRA (DeepSeek-R1-7B)</td><td>0.41</td><td>0.69</td><td>0.83</td><td>0.76</td><td>0.62</td><td>0.72</td></tr>
-              <tr><td>CALIBRA (InternVL3-8B)</td><td>0.39</td><td>0.67</td><td>0.82</td><td>0.75</td><td>0.60</td><td>0.70</td></tr>
-            </tbody>
-          </table>
-        </div>
+          <div id="combined-tab" class="results-panel is-active">
+            <div class="results-metric-grid">
+              <div class="results-stat">
+                <div class="value">3.42</div>
+                <div class="label">MAE</div>
+                <div class="sub">Gemini-2.5-Flash + CALIBRA</div>
+              </div>
+              <div class="results-stat">
+                <div class="value">34.4%</div>
+                <div class="label">Reduction</div>
+                <div class="sub">vs zero-shot prompting</div>
+              </div>
+              <div class="results-stat">
+                <div class="value">31.0%</div>
+                <div class="label">Reduction</div>
+                <div class="sub">GPT-4o vs zero-shot</div>
+              </div>
+              <div class="results-stat">
+                <div class="value">93%</div>
+                <div class="label">Coverage</div>
+                <div class="sub">routed mode</div>
+              </div>
+            </div>
 
-        <div class="table-card">
-          <div class="table-title">Judge-Based Evaluation of Output Quality and Evidence Alignment</div>
-          <div class="table-subtitle">Higher is better across all rubric dimensions.</div>
-          <table class="paper-table">
-            <thead>
-              <tr>
-                <th>Model / Setting</th>
-                <th>Grounding ↑</th>
-                <th>Consistency ↑</th>
-                <th>Rationale ↑</th>
-                <th>Confidence ↑</th>
-                <th>Plausibility ↑</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>GPT-4.0 (CoT)</td><td>7.6</td><td>7.4</td><td>7.3</td><td>7.0</td><td>7.5</td></tr>
-              <tr><td>GPT-4o (CALIBRA)</td><td>8.6</td><td>8.4</td><td>8.2</td><td>8.1</td><td>8.5</td></tr>
-              <tr><td>Qwen3-VL-8B (CoT)</td><td>7.1</td><td>6.9</td><td>6.8</td><td>6.7</td><td>7.0</td></tr>
-              <tr><td>Qwen3-VL-8B (CALIBRA)</td><td>8.0</td><td>7.8</td><td>7.6</td><td>7.5</td><td>7.9</td></tr>
-              <tr><td>Gemini-2.5-Flash (CALIBRA, alt. judge)</td><td class="best">8.9</td><td class="best">8.7</td><td class="best">8.5</td><td class="best">8.6</td><td class="best">8.8</td></tr>
-            </tbody>
-          </table>
-        </div>
+            <div class="fancy-table-card">
+              <div class="fancy-table-head">
+                <h3>Main benchmark results</h3>
+                <span class="fancy-table-chip">lower is better</span>
+              </div>
+              <div class="table-wrap">
+                <table class="fancy-paper-table">
+                  <thead>
+                    <tr>
+                      <th>Method</th>
+                      <th>MAE ↓</th>
+                      <th>RMSE ↓</th>
+                      <th>Bias ↓</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="method-cell">CALIBRA (Gemini-2.5-Flash)</td>
+                      <td class="best">3.42</td>
+                      <td class="best">4.88</td>
+                      <td class="best">0.29</td>
+                    </tr>
+                    <tr>
+                      <td class="method-cell">CALIBRA (GPT-4o)</td>
+                      <td>3.78</td>
+                      <td>5.26</td>
+                      <td>0.34</td>
+                    </tr>
+                    <tr>
+                      <td class="method-cell">CALIBRA (Qwen3-VL-8B)</td>
+                      <td>4.35</td>
+                      <td>5.92</td>
+                      <td>0.41</td>
+                    </tr>
+                    <tr>
+                      <td class="method-cell">CALIBRA (DeepSeek-R1-7B)</td>
+                      <td>4.58</td>
+                      <td>6.15</td>
+                      <td>0.45</td>
+                    </tr>
+                    <tr>
+                      <td class="method-cell">CALIBRA (InternVL3-8B)</td>
+                      <td>4.71</td>
+                      <td>6.28</td>
+                      <td>0.47</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
 
-        <div class="table-card">
-          <div class="table-title">Deployment Efficiency and Coverage</div>
-          <div class="table-subtitle">Lower is better for latency and memory; higher is better for coverage.</div>
-          <table class="paper-table">
-            <thead>
-              <tr>
-                <th>System / Mode</th>
-                <th>Avg. Latency ↓ (s)</th>
-                <th>P95 Latency ↓ (s)</th>
-                <th>Peak RAM ↓ (GB)</th>
-                <th>Coverage ↑ (%)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>Deterministic (FFT+Peak)</td><td class="best">0.03</td><td class="best">0.05</td><td class="best">0.35</td><td class="best">100</td></tr>
-              <tr><td>Single-agent (CoT)</td><td>2.4</td><td>5.1</td><td>1.1</td><td>98</td></tr>
-              <tr><td>CALIBRA (Routed mix)</td><td>4.1</td><td>8.7</td><td>1.6</td><td>93</td></tr>
-              <tr><td>CALIBRA (Strict pass@3)</td><td>7.8</td><td>15.6</td><td>1.9</td><td>91</td></tr>
-            </tbody>
-          </table>
+          <div id="quality-tab" class="results-panel">
+            <div class="results-metric-grid">
+              <div class="results-stat">
+                <div class="value">0.62</div>
+                <div class="label">RG</div>
+                <div class="sub">response grounding</div>
+              </div>
+              <div class="results-stat">
+                <div class="value">0.79</div>
+                <div class="label">CRA</div>
+                <div class="sub">critic agreement</div>
+              </div>
+              <div class="results-stat">
+                <div class="value">0.90</div>
+                <div class="label">CS</div>
+                <div class="sub">consistency score</div>
+              </div>
+              <div class="results-stat">
+                <div class="value">0.82</div>
+                <div class="label">EAR</div>
+                <div class="sub">evidence alignment</div>
+              </div>
+            </div>
+
+            <div class="fancy-table-card">
+              <div class="fancy-table-head">
+                <h3>Judge-based output quality</h3>
+                <span class="fancy-table-chip">higher is better</span>
+              </div>
+              <div class="table-wrap">
+                <table class="fancy-paper-table">
+                  <thead>
+                    <tr>
+                      <th>Model / Setting</th>
+                      <th>Grounding ↑</th>
+                      <th>Consistency ↑</th>
+                      <th>Rationale ↑</th>
+                      <th>Confidence ↑</th>
+                      <th>Plausibility ↑</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="method-cell">GPT-4o (CoT)</td>
+                      <td>7.6</td>
+                      <td>7.4</td>
+                      <td>7.3</td>
+                      <td>7.0</td>
+                      <td>7.5</td>
+                    </tr>
+                    <tr>
+                      <td class="method-cell">GPT-4o (CALIBRA)</td>
+                      <td>8.6</td>
+                      <td>8.4</td>
+                      <td>8.2</td>
+                      <td>8.1</td>
+                      <td>8.5</td>
+                    </tr>
+                    <tr>
+                      <td class="method-cell">Qwen3-VL-8B (CoT)</td>
+                      <td>7.1</td>
+                      <td>6.9</td>
+                      <td>6.8</td>
+                      <td>6.7</td>
+                      <td>7.0</td>
+                    </tr>
+                    <tr>
+                      <td class="method-cell">Qwen3-VL-8B (CALIBRA)</td>
+                      <td>8.0</td>
+                      <td>7.8</td>
+                      <td>7.6</td>
+                      <td>7.5</td>
+                      <td>7.9</td>
+                    </tr>
+                    <tr>
+                      <td class="method-cell">Gemini-2.5-Flash (CALIBRA)</td>
+                      <td class="best">8.9</td>
+                      <td class="best">8.7</td>
+                      <td class="best">8.5</td>
+                      <td class="best">8.6</td>
+                      <td class="best">8.8</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div id="efficiency-tab" class="results-panel">
+            <div class="results-metric-grid">
+              <div class="results-stat">
+                <div class="value">4.1s</div>
+                <div class="label">Avg. Latency</div>
+                <div class="sub">routed mode</div>
+              </div>
+              <div class="results-stat">
+                <div class="value">8.7s</div>
+                <div class="label">P95 Latency</div>
+                <div class="sub">routed mode</div>
+              </div>
+              <div class="results-stat">
+                <div class="value">1.6 GB</div>
+                <div class="label">Peak RAM</div>
+                <div class="sub">routed mode</div>
+              </div>
+              <div class="results-stat">
+                <div class="value">93%</div>
+                <div class="label">Coverage</div>
+                <div class="sub">kept predictions</div>
+              </div>
+            </div>
+
+            <div class="fancy-table-card">
+              <div class="fancy-table-head">
+                <h3>Deployment efficiency</h3>
+                <span class="fancy-table-chip">latency vs coverage</span>
+              </div>
+              <div class="table-wrap">
+                <table class="fancy-paper-table">
+                  <thead>
+                    <tr>
+                      <th>System / Mode</th>
+                      <th>Avg. Latency ↓ (s)</th>
+                      <th>P95 Latency ↓ (s)</th>
+                      <th>Peak RAM ↓ (GB)</th>
+                      <th>Coverage ↑ (%)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="method-cell">Deterministic (FFT+Peak)</td>
+                      <td class="best">0.03</td>
+                      <td class="best">0.05</td>
+                      <td class="best">0.35</td>
+                      <td class="best">100</td>
+                    </tr>
+                    <tr>
+                      <td class="method-cell">Single-agent (CoT)</td>
+                      <td>2.4</td>
+                      <td>5.1</td>
+                      <td>1.1</td>
+                      <td>98</td>
+                    </tr>
+                    <tr>
+                      <td class="method-cell">CALIBRA (Routed mix)</td>
+                      <td>4.1</td>
+                      <td>8.7</td>
+                      <td>1.6</td>
+                      <td>93</td>
+                    </tr>
+                    <tr>
+                      <td class="method-cell">CALIBRA (Strict pass@3)</td>
+                      <td>7.8</td>
+                      <td>15.6</td>
+                      <td>1.9</td>
+                      <td>91</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <p class="mini-note">
+            Searchable, polished tables instead of long text blocks.
+          </p>
         </div>
       </div>
     </section>
 
-    <section class="hero is-small">
-      <div class="hero-body">
-        <div class="container is-max-desktop">
-          <h2 class="title is-3 has-text-centered">Main Benchmark Plot</h2>
-          <div class="section-figure">
-            <img src="static/images/figure%203.png" alt="Figure 3 Benchmark plot">
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="quote-highlight">
+          CALIBRA substantially improves robustness and decision quality by combining routing, critic-based checking, targeted repair, and calibrated abstention under evidence uncertainty.
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered section-title-tight">Main Benchmark Plot</h2>
+        <p class="compact-p">A direct visual comparison of prompting baselines and CALIBRA across backbones.</p>
+
+        <div class="figure-card">
+          <div class="section-figure" style="margin-top:0;">
+            <img src="static/images/figure 3.png" alt="Figure 3 Benchmark plot" onerror="this.onerror=null; this.src='static/images/figure3.png';">
           </div>
           <p class="figure-caption">
             Segment-level MAE for prompting baselines and CALIBRA across backbones.
@@ -638,43 +988,68 @@
       <div class="hero-body">
         <div class="container is-max-desktop">
           <h2 class="title is-3 has-text-centered">Qualitative Example</h2>
+
           <div class="columns is-vcentered">
             <div class="column is-7">
-              <div class="section-figure">
-                <img src="static/images/figure%204.png" alt="Figure 4">
+              <div class="figure-card">
+                <div class="section-figure" style="margin-top:0;">
+                  <img src="static/images/figure 4.png" alt="Figure 4" onerror="this.onerror=null; this.src='static/images/figure4.png';">
+                </div>
+                <p class="figure-caption">
+                  A representative challenging segment where CALIBRA resolves the final prediction through routing, evidence verification, and calibrated arbitration.
+                </p>
               </div>
-              <p class="figure-caption">
-                A representative challenging segment where CALIBRA resolves the final prediction through routing, evidence verification, and calibrated arbitration.
-              </p>
             </div>
+
             <div class="column is-5">
               <div class="info-card">
+                <h3 class="title is-5">Why the example matters</h3>
                 <p>
-                  Difficult segments often contain partially informative but mutually inconsistent cues. A prompt-only model may still return a plausible rate, yet the waveform, histogram, motion summary, and deterministic candidates may not agree. CALIBRA improves decision discipline by forcing agreement checks before commitment.
+                  Challenging segments often contain partially informative but mutually inconsistent cues. CALIBRA improves decision discipline by forcing agreement checks before commitment.
                 </p>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
 
-    <section class="hero is-small">
-      <div class="hero-body">
-        <div class="container is-max-desktop">
-          <h2 class="title is-3 has-text-centered">Ablation</h2>
-          <div class="columns is-vcentered two-col-gap">
-            <div class="column is-6">
-              <div class="info-card">
-                <h3 class="title is-5">Component ablation</h3>
-                <p>
-                  The full system achieves MAE 3.42. Removing the critic increases MAE to 3.94, removing repair increases it to 3.82, disabling routing increases it to 3.66, and disabling abstention increases it to 3.59.
-                </p>
+    <section class="section">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered section-title-tight">Ablation</h2>
+        <p class="compact-p">The main gains come from routing, critic checks, repair, and calibrated abstention.</p>
+
+        <div class="columns is-variable is-5 is-vcentered">
+          <div class="column is-5">
+            <div class="results-metric-grid" style="grid-template-columns: 1fr; margin-bottom:0;">
+              <div class="results-stat">
+                <div class="value">3.42</div>
+                <div class="label">Full System MAE</div>
+                <div class="sub">best configuration</div>
+              </div>
+              <div class="results-stat">
+                <div class="value">3.94</div>
+                <div class="label">w/o Critic</div>
+                <div class="sub">largest drop</div>
+              </div>
+              <div class="results-stat">
+                <div class="value">3.82</div>
+                <div class="label">w/o Repair</div>
+                <div class="sub">higher error</div>
+              </div>
+              <div class="results-stat">
+                <div class="value">3.66</div>
+                <div class="label">w/o Routing</div>
+                <div class="sub">less efficient selection</div>
               </div>
             </div>
-            <div class="column is-6">
+          </div>
+
+          <div class="column is-7">
+            <div class="figure-card">
               <div class="section-figure" style="margin-top:0;">
-                <img src="static/images/figure%205.png" alt="Figure 5 Ablation">
+                <img src="static/images/figure 5.png" alt="Figure 5 Ablation" onerror="this.onerror=null; this.src='static/images/figure5.png';">
               </div>
               <p class="figure-caption">
                 Component ablation of CALIBRA on the best-performing configuration.
