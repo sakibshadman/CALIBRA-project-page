@@ -53,12 +53,9 @@
   <style>
     :root {
       --primary: #1d4ed8;
-      --primary-soft: #e8f0ff;
-      --secondary-soft: #f3f4f6;
       --ink: #111827;
       --muted: #4b5563;
       --border: #e5e7eb;
-      --soft-border: #d1d5db;
       --card: #ffffff;
       --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
       --shadow-soft: 0 6px 18px rgba(15, 23, 42, 0.06);
@@ -229,7 +226,7 @@
     }
 
     .section-title-tight {
-      margin-bottom: 0.75rem !important;
+      margin-bottom: 0.6rem !important;
     }
 
     .explain-block {
@@ -428,6 +425,53 @@
       font-weight: 800;
     }
 
+    .ablation-figure-wrap {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .ablation-metric-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      max-width: 980px;
+      margin: 1.25rem auto 0 auto;
+    }
+
+    .ablation-mini-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 1.1rem 0.9rem;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .ablation-mini-card .value {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1.05;
+      color: #111827;
+    }
+
+    .ablation-mini-card .label {
+      margin-top: 0.42rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .ablation-mini-card .sub {
+      margin-top: 0.2rem;
+      font-size: 0.92rem;
+      color: #4b5563;
+    }
+
+    .qualitative-wrap {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
     .bibtex-header {
       display: flex;
       align-items: center;
@@ -457,8 +501,18 @@
       background: #f5f5f5;
     }
 
+    /* remove template underline under headings */
+    .title.is-3::after,
+    .hero .title.is-3::after,
+    .section .title.is-3::after,
+    h2.title.is-3::after {
+      display: none !important;
+      content: none !important;
+    }
+
     @media (max-width: 1024px) {
-      .results-metric-grid {
+      .results-metric-grid,
+      .ablation-metric-row {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
@@ -472,12 +526,14 @@
         padding: 1rem;
       }
 
-      .results-metric-grid {
+      .results-metric-grid,
+      .ablation-metric-row {
         grid-template-columns: 1fr;
       }
 
-      .results-stat .value {
-        font-size: 2rem;
+      .results-stat .value,
+      .ablation-mini-card .value {
+        font-size: 1.8rem;
       }
 
       .results-topline,
@@ -784,7 +840,7 @@
                       <td>0.45</td>
                     </tr>
                     <tr>
-                      <td class="method-cell">CALIBRA (InternVL3-8B)</td>
+                      <td class="method-cell">CALIBRA (InternVL3-VL-8B)</td>
                       <td>4.71</td>
                       <td>6.28</td>
                       <td>0.47</td>
@@ -978,26 +1034,14 @@
         <div class="container is-max-desktop">
           <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
 
-          <div class="columns is-vcentered">
-            <div class="column is-7">
-              <div class="section-figure" style="margin-top:0;">
-                <img src="static/images/figure 4.png" alt="Figure 4" onerror="this.onerror=null; this.src='static/images/figure4.png';">
-              </div>
-              <p class="figure-caption">
-                A representative challenging segment where CALIBRA resolves the final prediction through routing, evidence verification, and calibrated arbitration.
-              </p>
+          <div class="qualitative-wrap">
+            <div class="section-figure" style="margin-top:0;">
+              <img src="static/images/figure 4.png" alt="Figure 4" onerror="this.onerror=null; this.src='static/images/figure4.png';">
             </div>
-
-            <div class="column is-5">
-              <div class="info-card">
-                <h3 class="title is-5">Why the example matters</h3>
-                <p>
-                  Challenging segments often contain partially informative but mutually inconsistent cues. CALIBRA improves decision discipline by forcing agreement checks before commitment.
-                </p>
-              </div>
-            </div>
+            <p class="figure-caption">
+              A representative challenging segment where CALIBRA resolves the final prediction through routing, evidence verification, and calibrated arbitration.
+            </p>
           </div>
-
         </div>
       </div>
     </section>
@@ -1007,39 +1051,35 @@
         <h2 class="title is-3 has-text-centered section-title-tight">Ablation</h2>
         <p class="compact-p">The main gains come from routing, critic checks, repair, and calibrated abstention.</p>
 
-        <div class="columns is-variable is-5 is-vcentered">
-          <div class="column is-5">
-            <div class="results-metric-grid" style="grid-template-columns: 1fr; margin-bottom:0;">
-              <div class="results-stat">
-                <div class="value">3.42</div>
-                <div class="label">Full System MAE</div>
-                <div class="sub">best configuration</div>
-              </div>
-              <div class="results-stat">
-                <div class="value">3.94</div>
-                <div class="label">w/o Critic</div>
-                <div class="sub">largest drop</div>
-              </div>
-              <div class="results-stat">
-                <div class="value">3.82</div>
-                <div class="label">w/o Repair</div>
-                <div class="sub">higher error</div>
-              </div>
-              <div class="results-stat">
-                <div class="value">3.66</div>
-                <div class="label">w/o Routing</div>
-                <div class="sub">less efficient selection</div>
-              </div>
-            </div>
+        <div class="ablation-figure-wrap">
+          <div class="section-figure" style="margin-top:0;">
+            <img src="static/images/figure 5.png" alt="Figure 5 Ablation" onerror="this.onerror=null; this.src='static/images/figure5.png';">
           </div>
+          <p class="figure-caption">
+            Component ablation of CALIBRA on the best-performing configuration.
+          </p>
+        </div>
 
-          <div class="column is-7">
-            <div class="section-figure" style="margin-top:0;">
-              <img src="static/images/figure 5.png" alt="Figure 5 Ablation" onerror="this.onerror=null; this.src='static/images/figure5.png';">
-            </div>
-            <p class="figure-caption">
-              Component ablation of CALIBRA on the best-performing configuration.
-            </p>
+        <div class="ablation-metric-row">
+          <div class="ablation-mini-card">
+            <div class="value">3.42</div>
+            <div class="label">Full System MAE</div>
+            <div class="sub">best configuration</div>
+          </div>
+          <div class="ablation-mini-card">
+            <div class="value">3.94</div>
+            <div class="label">w/o Critic</div>
+            <div class="sub">largest drop</div>
+          </div>
+          <div class="ablation-mini-card">
+            <div class="value">3.82</div>
+            <div class="label">w/o Repair</div>
+            <div class="sub">higher error</div>
+          </div>
+          <div class="ablation-mini-card">
+            <div class="value">3.66</div>
+            <div class="label">w/o Routing</div>
+            <div class="sub">less efficient selection</div>
           </div>
         </div>
       </div>
@@ -1048,7 +1088,7 @@
     <section class="section" id="BibTeX">
       <div class="container is-max-desktop content">
         <div class="bibtex-header">
-          <h2 class="title">BibTeX</h2>
+          <h2 class="title">Citation</h2>
           <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
             <i class="fas fa-copy"></i>
             <span class="copy-text">Copy</span>
