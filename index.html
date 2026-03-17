@@ -62,7 +62,7 @@
       --shadow-soft: 0 6px 18px rgba(15, 23, 42, 0.06);
       --radius: 18px;
       --dark-table: #1f1f1f;
-      --heading-line: #ec4899;
+      --heading-line: #2563eb;
       --accept-bg: #f5f3ff;
       --accept-border: #ddd6fe;
       --accept-pill: #4c1d95;
@@ -102,6 +102,51 @@
       padding: 0.45rem 0.7rem;
       border: 1px solid var(--border);
       box-shadow: var(--shadow-soft);
+    }
+
+    .calibra-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.7rem 1rem;
+      background: linear-gradient(135deg, #eff6ff, #eef2ff);
+      border: 1px solid #c7d2fe;
+      border-radius: 16px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .calibra-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #1d4ed8, #7c3aed);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing: 0.03em;
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.18);
+    }
+
+    .calibra-wording {
+      text-align: left;
+      line-height: 1.15;
+    }
+
+    .calibra-wording .main {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #111827;
+      letter-spacing: 0.04em;
+    }
+
+    .calibra-wording .sub {
+      font-size: 0.8rem;
+      color: #4b5563;
+      font-weight: 600;
+      letter-spacing: 0.02em;
     }
 
     .accept-badge-wrap {
@@ -234,9 +279,12 @@
     .compact-p {
       max-width: 900px;
       margin: 0 auto 1rem auto;
-      text-align: center;
       color: var(--muted);
-      line-height: 1.8;
+      line-height: 1.82;
+    }
+
+    .compact-p.method-text {
+      text-align: justify;
     }
 
     .spacer-top {
@@ -510,8 +558,9 @@
       margin: 0 auto;
     }
 
-    .abstract-text {
-      color: #000000;
+    .abstract-text,
+    .abstract-text p {
+      color: #000 !important;
     }
 
     .bibtex-header {
@@ -587,6 +636,10 @@
       .affiliation-line {
         white-space: normal;
       }
+
+      .compact-p.method-text {
+        text-align: left;
+      }
     }
   </style>
 
@@ -634,7 +687,13 @@
 
               <div class="hero-logo-row">
                 <img src="static/images/cvpr.png" alt="CVPR logo" onerror="this.style.display='none'">
-                <img src="static/images/logo_grail.png" alt="GRAIL-V logo" onerror="this.style.display='none'">
+                <div class="calibra-badge" aria-label="CALIBRA logo">
+                  <div class="calibra-mark">CA</div>
+                  <div class="calibra-wording">
+                    <div class="main">CALIBRA</div>
+                    <div class="sub">Calibration-Aware Multi-Agent Verification</div>
+                  </div>
+                </div>
               </div>
 
               <h1 class="title is-1 publication-title">
@@ -787,8 +846,8 @@
         <div class="container is-max-desktop">
           <h2 class="title is-3 has-text-centered title-with-line">Method</h2>
 
-          <p class="compact-p">
-            Each segment is represented as a four-view artifact bundle with an annotated frame, respiratory signal plot, optical-flow summary, and histogram view, together with deterministic candidate respiratory rates. The framework first estimates whether a segment appears easy or ambiguous, then routes it through specialized agents that inspect waveform structure, motion quality, visual periodicity, and disagreement between candidate estimates. A critic module aggregates the evidence, checks consistency, and flags conflicts. When needed, a repair stage revisits the uncertain evidence before an arbiter produces the final respiratory-rate estimate together with a calibrated confidence decision.
+          <p class="compact-p method-text">
+            Each segment is represented as a four-view artifact bundle with an annotated frame, respiratory signal plot, optical-flow summary, and histogram view, together with deterministic candidate respiratory rates. The framework first estimates whether a segment appears easy or ambiguous, then routes it through specialized agents that inspect waveform structure, motion quality, visual periodicity, and disagreement between candidate estimates. A critic module aggregates the evidence, checks consistency, and flags conflicts. When needed, a repair stage revisits uncertain evidence and updates the preferred interpretation before an arbiter produces the final respiratory-rate estimate together with a calibrated confidence decision. This design allows CALIBRA to move beyond one-pass prompting and instead make decisions through explicit evidence checking and controlled refinement.
           </p>
 
           <div class="section-figure">
@@ -1090,7 +1149,7 @@
     <section class="section">
       <div class="container is-max-desktop">
         <h2 class="title is-3 has-text-centered section-title-tight title-with-line">Ablation</h2>
-        <p class="compact-p">The main gains come from routing, critic checks, repair, and calibrated abstention.</p>
+        <p class="compact-p" style="text-align:center;">The main gains come from routing, critic checks, repair, and calibrated abstention.</p>
 
         <div class="ablation-figure-wrap">
           <div class="section-figure" style="margin-top:0;">
@@ -1129,7 +1188,7 @@
     <section class="section" id="BibTeX">
       <div class="container is-max-desktop content">
         <div class="bibtex-header">
-          <h2 class="title">Citation</h2>
+          <h2 class="title">BibTeX</h2>
           <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
             <i class="fas fa-copy"></i>
             <span class="copy-text">Copy</span>
