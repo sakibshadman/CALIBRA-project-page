@@ -154,13 +154,31 @@
       padding: 1.2rem;
       height: 100%;
       box-shadow: var(--shadow-soft);
+      text-align: center;
     }
 
     .metric-card h3 {
-      margin-bottom: 0.35rem;
-      font-size: 1.65rem;
+      margin-bottom: 0.45rem;
+      font-size: 2.05rem;
       font-weight: 800;
-      color: var(--primary);
+      color: #111827;
+      line-height: 1.05;
+    }
+
+    .metric-card .metric-value {
+      display: inline-block;
+      font-weight: 800;
+      color: #1d4ed8;
+      background: linear-gradient(180deg, #eef4ff 0%, #dbeafe 100%);
+      border: 1px solid #bfdbfe;
+      border-radius: 999px;
+      padding: 0.22rem 0.75rem;
+      box-shadow: 0 4px 12px rgba(29, 78, 216, 0.10);
+    }
+
+    .metric-card p {
+      color: #1f2937;
+      line-height: 1.55;
     }
 
     .info-card {
@@ -178,25 +196,16 @@
       text-align: center;
     }
 
-    .section-figure img,
-    .section-figure iframe,
-    .section-figure object {
+    .section-figure img {
       width: 100%;
       max-width: 100%;
+      height: auto;
       border-radius: 16px;
       border: 1px solid var(--border);
       background: white;
       display: block;
       margin: 0 auto;
       box-shadow: var(--shadow-soft);
-    }
-
-    .figure-image {
-      height: auto;
-    }
-
-    .figure-pdf {
-      height: 680px;
     }
 
     .figure-caption {
@@ -419,21 +428,6 @@
       font-weight: 800;
     }
 
-    .figure-card {
-      padding: 1rem;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      background: #fff;
-      box-shadow: var(--shadow);
-    }
-
-    .pdf-fallback {
-      margin-top: 0.75rem;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
     .bibtex-header {
       display: flex;
       align-items: center;
@@ -467,10 +461,6 @@
       .results-metric-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-
-      .figure-pdf {
-        height: 560px;
-      }
     }
 
     @media (max-width: 768px) {
@@ -494,10 +484,6 @@
       .explain-block {
         font-size: 1rem;
         padding: 1rem;
-      }
-
-      .figure-pdf {
-        height: 420px;
       }
 
       .accept-badge {
@@ -607,19 +593,19 @@
               <div class="columns is-centered spacer-top">
                 <div class="column is-4">
                   <div class="metric-card">
-                    <h3>34.4%</h3>
+                    <h3><span class="metric-value">34.4%</span></h3>
                     <p>MAE reduction over zero-shot prompting with Gemini-2.5-Flash</p>
                   </div>
                 </div>
                 <div class="column is-4">
                   <div class="metric-card">
-                    <h3>31.0%</h3>
+                    <h3><span class="metric-value">31.0%</span></h3>
                     <p>MAE reduction over zero-shot prompting with GPT-4o</p>
                   </div>
                 </div>
                 <div class="column is-4">
                   <div class="metric-card">
-                    <h3>93%</h3>
+                    <h3><span class="metric-value">93%</span></h3>
                     <p>Coverage in routed mode at 4.1 s average latency and 1.6 GB peak memory</p>
                   </div>
                 </div>
@@ -635,7 +621,7 @@
       <div class="container is-max-widescreen">
         <div class="hero-body">
           <div class="section-figure">
-            <img class="figure-image" src="static/images/figure 1.png" alt="Figure 1" onerror="this.onerror=null; this.src='static/images/figure1.png';">
+            <img src="static/images/figure 1.png" alt="Figure 1" onerror="this.onerror=null; this.src='static/images/figure1.png';">
           </div>
           <p class="figure-caption">
             CALIBRA improves over one-shot prompting by routing difficult segments, checking agreement across evidence channels, repairing conflicts when needed, and abstaining when evidence remains unreliable.
@@ -709,7 +695,7 @@
           </p>
 
           <div class="section-figure">
-            <img class="figure-image" src="static/images/figure 2.png" alt="Figure 2" onerror="this.onerror=null; this.src='static/images/figure2.png';">
+            <img src="static/images/figure 2.png" alt="Figure 2" onerror="this.onerror=null; this.src='static/images/figure2.png';">
           </div>
           <p class="figure-caption">
             Overview of CALIBRA’s evidence-grounded verification pipeline.
@@ -978,19 +964,12 @@
 
     <section class="section">
       <div class="container is-max-desktop">
-        <div class="figure-card">
-          <div class="section-figure" style="margin-top:0;">
-            <object class="figure-pdf" data="static/images/figure 3.pdf" type="application/pdf">
-              <iframe class="figure-pdf" src="static/images/figure 3.pdf" title="Figure 3 Benchmark Plot"></iframe>
-            </object>
-          </div>
-          <p class="figure-caption">
-            Segment-level MAE for prompting baselines and CALIBRA across backbones.
-          </p>
-          <p class="pdf-fallback">
-            If the PDF preview does not render in your browser, open <a href="static/images/figure 3.pdf" target="_blank">Figure 3 PDF</a>.
-          </p>
+        <div class="section-figure" style="margin-top:0;">
+          <img src="static/images/figure 3.png" alt="Figure 3 Benchmark plot" onerror="this.onerror=null; this.src='static/images/figure3.png';">
         </div>
+        <p class="figure-caption">
+          Segment-level MAE for prompting baselines and CALIBRA across backbones.
+        </p>
       </div>
     </section>
 
@@ -1001,14 +980,12 @@
 
           <div class="columns is-vcentered">
             <div class="column is-7">
-              <div class="figure-card">
-                <div class="section-figure" style="margin-top:0;">
-                  <img class="figure-image" src="static/images/figure 4.png" alt="Figure 4" onerror="this.onerror=null; this.src='static/images/figure4.png';">
-                </div>
-                <p class="figure-caption">
-                  A representative challenging segment where CALIBRA resolves the final prediction through routing, evidence verification, and calibrated arbitration.
-                </p>
+              <div class="section-figure" style="margin-top:0;">
+                <img src="static/images/figure 4.png" alt="Figure 4" onerror="this.onerror=null; this.src='static/images/figure4.png';">
               </div>
+              <p class="figure-caption">
+                A representative challenging segment where CALIBRA resolves the final prediction through routing, evidence verification, and calibrated arbitration.
+              </p>
             </div>
 
             <div class="column is-5">
@@ -1057,19 +1034,12 @@
           </div>
 
           <div class="column is-7">
-            <div class="figure-card">
-              <div class="section-figure" style="margin-top:0;">
-                <object class="figure-pdf" data="static/images/figure 5.pdf" type="application/pdf">
-                  <iframe class="figure-pdf" src="static/images/figure 5.pdf" title="Figure 5 Ablation"></iframe>
-                </object>
-              </div>
-              <p class="figure-caption">
-                Component ablation of CALIBRA on the best-performing configuration.
-              </p>
-              <p class="pdf-fallback">
-                If the PDF preview does not render in your browser, open <a href="static/images/figure 5.pdf" target="_blank">Figure 5 PDF</a>.
-              </p>
+            <div class="section-figure" style="margin-top:0;">
+              <img src="static/images/figure 5.png" alt="Figure 5 Ablation" onerror="this.onerror=null; this.src='static/images/figure5.png';">
             </div>
+            <p class="figure-caption">
+              Component ablation of CALIBRA on the best-performing configuration.
+            </p>
           </div>
         </div>
       </div>
